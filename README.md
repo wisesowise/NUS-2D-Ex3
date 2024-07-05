@@ -1,9 +1,9 @@
-World Camera Setting
+# World Camera Setting
 ·         height of 100 (total world height is 200)
 
  
 
-Hero (Identical to Ex2)
+# Hero (Identical to Ex2)
 ·         Size: 5x5
 
 ·         Control model: Key-M toggles between mouse or keyboard control
@@ -22,22 +22,22 @@ o   Keyboard control: Up/Down (WS) keys gradually increases/decreases the Hero�
 
  
 
-Spawned Egg (Almost identical to Ex2)
+# Spawned Egg (Almost identical to Ex2)
 ·         Size: 1x1
 
 ·         Aligned with the Transform.up direction of the hero at the spawn time
 
 ·         Spawned eggs travers towards its Transform.up direction at a speed of 40 unit/sec
 
-·         NEW: Spawned eggs expires when one of the following condition is true
+##     NEW: Spawned eggs expires when one of the following condition is true
 
-o   It reaches the bounds of the world
+ o   It reaches the bounds of the world
 
-o   It collides with an enemy
+ o   It collides with an enemy
 
-o   NEW: It collides with a waypoint
+ o   NEW: It collides with a waypoint
 
-·         NEW: UI cool-down bar for egg spawning
+##        NEW: UI cool-down bar for egg spawning
 
 o   Recall that the cool-down period is 0.2 second
 
@@ -51,7 +51,7 @@ o   The cool-down bar details:
 
  
 
-Waypoint System (New)
+# Waypoint System (New)
 There are six waypoint objects in the system, names A to F.
 
 ·         Their initial locations are: A:(-70, 70), B(70, -70), C(30, 0), D(-70, -70), E(70, 70), F(-30, 0)
@@ -69,7 +69,7 @@ o   This means, waypoints will never move more than 15-units away from its origi
 ·         H-key: toggles the hiding of the waypoint objects
 
  
-Enemy and Spawning (new: with States)
+# Enemy and Spawning (new: with States)
 ·         Identical to Ex2:
 
 ·         Each enemy size is 5x5
@@ -80,45 +80,45 @@ Enemy and Spawning (new: with States)
 
 ·         When an enemy comes in contact:
 
-o   With the hero, it is destroyed
+##   With the hero, it is destroyed
 
-o   With the egg: it loses 80% of its current energy (displayed as alpha-channel scaled by 80%):
+##   With the egg: it loses 80% of its current energy (displayed as alpha-channel scaled by 80%):
 
-GetComponent<Renderer>().material.color.a *= 0.8;
+     GetComponent<Renderer>().material.color.a *= 0.8;
 
-// Note, the above line does not run as Unity does not
+     // Note, the above line does not run as Unity does not
 
-// allow the modification of Color channels. You must
+    // allow the modification of Color channels. You must
 
-// create/modify/assign using a separate Color object
+    // create/modify/assign using a separate Color object
 
  
 
-o   The 4th collision with an egg destroys an enemy
+##  The 4th collision with an egg destroys an enemy
 
 ·         As soon as an enemy is destroyed, a new one is spawned subject to the above condition (maintain exactly 10, always within 90% of world boundaries)
 
 ·         New behaviors: Patrol
 
-o   All spawned enemies travel at a constant speed of 20 unit/sec
+##   All spawned enemies travel at a constant speed of 20 unit/sec
 
-o   Under the user control (refer to Game State), an enemy sequences through the waypoints in two one of two ways (J-Key toggles between the two)
+##  Under the user control (refer to Game State), an enemy sequences through the waypoints in two one of two ways (J-Key toggles between the two)
 
 §  Sequentially from A to F then back to A again
 
 §  Randomly from one to the next random waypoint
 
-o   Target waypoint, at all times an enemy travels towards a target waypoint. It must turn gradually towards the target waypoint at all times at a rate of 0.03/60. [call the PointAtPosition() function with this rate at each update].
+##   Target waypoint, at all times an enemy travels towards a target waypoint. It must turn gradually towards the target waypoint at all times at a rate of 0.03/60. [call the PointAtPosition() function with this rate at each update].
 
-o   When a Target waypoint is re-positioned (because it has received 4 shots of the egg), the enemy will move towards the new position
+##   When a Target waypoint is re-positioned (because it has received 4 shots of the egg), the enemy will move towards the new position
 
-o   When an enemy is within 25 units of the current target waypoint, it should request and set the next way point to be its new target and begin turning.
-
- 
+##   When an enemy is within 25 units of the current target waypoint, it should request and set the next way point to be its new target and begin turning.
 
  
 
-Application Status 
+ 
+
+# Application Status 
 ·         The application status must be printed out including:
 
 o   Identical to Ex2:
@@ -139,7 +139,7 @@ o   Identical to Ex2:
 
 ·         Number destroyed
 
-o   New: Print out waypoint mode: random vs sequence
+##   New: Print out waypoint mode: random vs sequence
 
 ·         Q-key:
 
